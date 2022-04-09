@@ -136,3 +136,6 @@ ffmpeg/
 
 #scrapers
 scrapers/
+
+#media
+media/*
