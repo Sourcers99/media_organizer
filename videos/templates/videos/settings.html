@@ -1,0 +1,5 @@
+<form action="{% url 'settings' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="video-path" id="">
+    <input type="submit" value="Submit">
+</form>
