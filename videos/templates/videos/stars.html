@@ -1,0 +1,68 @@
+{% extends 'videos/base.html' %} 
+{% block title %}Stars - {{page_obj.number}}
+{% endblock title %} 
+{% block content %}
+<div class="mt-5">
+  <div class="flex justify-between">
+      <h2 class="text-3xl font-bold">Stars</h2>
+        <a href="" class="w-10 h-10 bg-red-400 rounded-full flex justify-center items-center" id="open-star-model">+</a>
+  </div>
+  
+  <hr class="mt-2">
+  <div>
+    {% for star in stars %}
+    <p>{{star.star_name}}</p>
+    {% endfor %}
+  </div>
+</div>
+
+{% comment%} Pagination {% endcomment %}
+<div class="flex items-center justify-center space-x-1">
+  {% if page_obj.has_previous %}
+  <a
+    href="#"
+    class="flex items-center px-4 py-2 text-gray-500 bg-gray-300 rounded-md"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-6 h-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M11 17l-5-5m0 0l5-5m-5 5h12"
+      />
+    </svg>
+  </a>
+  {% endif %}
+
+  <p class="px-4 py-2 text-gray-700 bg-gray-200 rounded-md">
+    {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+</p>
+  {% if page_obj.has_next %}
+  <a
+    href="#"
+    class="px-4 py-2 text-gray-500 bg-gray-300 rounded-md hover:bg-blue-400 hover:text-white"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-6 h-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M13 7l5 5m0 0l-5 5m5-5H6"
+      />
+    </svg>
+  </a>
+  {% endif %}
+</div>
+{% endblock content %}

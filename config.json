@@ -1,13 +1,13 @@
 {
-    "address":"127.0.0.1",
-    "port": "5000",
-    "default-browser": "",
-    "selenium-browser": ["Chrome", "Firefox", "Edge"],
-    "chrome-driver-path": "",
-    "firefox-driver-path": "",
-    "edge-driver-path":"",
-    "media-path": [],
-    "images-store-path": "./media/images/",
-    "default-downloader": "",
-    "downloaders": ["aria2c", "wget"]
+  "address": "127.0.0.1",
+  "port": "5000",
+  "default-browser": "",
+  "selenium-browser": ["Chrome", "Firefox", "Edge"],
+  "chrome_driver_path": "D:\\YAPO\\yapo-eplus.exe",
+  "firefox-driver-path": "",
+  "edge-driver-path": "",
+  "media_path": ["D:\\movies", "D:\\Downloads", "D:\\"],
+  "images-store-path": "./media/images/",
+  "default-downloader": "",
+  "downloaders": ["aria2c"]
 }

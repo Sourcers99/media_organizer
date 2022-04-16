@@ -1,0 +1,132 @@
+{% load static %}
+{% load tailwind_tags %}
+<!doctype html>
+<html lang="en" class="h-screen">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A place to organize videos">
+    <meta name="author" content="Sourcers99">
+    <title>Video Manager - {% block title %}{% endblock title %}</title>
+    {% tailwind_css %}
+
+
+    <!-- Favicons -->
+<!-- <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico"> -->
+<meta name="theme-color" content="#7952b3">
+    
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body class="h-screen text-white bg-gray-800">
+    {% block nav %}
+    <nav class="shadow-lg">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between">
+          <div class="flex space-x-7">
+            <!-- Website Logo -->
+            <div>
+              <a href="{% url 'videos' %}" class="flex items-center py-4 px-2">
+                <span class="font-semibold text-white text-lg"
+                  >VM</span
+                >
+              </a>
+            </div>
+            <!-- Primary Navbar items -->
+            <div class="hidden md:flex items-center space-x-1">
+              <a
+                href="{% url 'videos' %}"
+                class="py-4 px-2 text-white hover:text-green-500 font-semibold transition duration-300"
+                >Videos</a
+              >
+              <a
+                href="{% url 'stars' %}"
+                class="py-4 px-2 text-white font-semibold hover:text-green-500 transition duration-300"
+                >Stars</a
+              >
+              <a
+                href="{% url 'channels' %}"
+                class="py-4 px-2 text-white font-semibold hover:text-green-500 transition duration-300"
+                >Channels</a
+              >
+              <a
+                href="{% url 'subsites' %}"
+                class="py-4 px-2 text-white font-semibold hover:text-green-500 transition duration-300"
+                >Subsites</a
+              >
+              <a
+                href="{% url 'categories' %}"
+                class="py-4 px-2 text-white font-semibold hover:text-green-500 transition duration-300"
+                >Categories</a
+              >
+              <a
+                href="{% url 'tags' %}"
+                class="py-4 px-2 text-white font-semibold hover:text-green-500 transition duration-300"
+                >Tags</a
+              >
+              <a
+                href="{% url 'pending' %}"
+                class="py-4 px-2 text-white font-semibold hover:text-green-500 transition duration-300"
+                >Pending</a
+              >
+              <a
+                href="{% url 'settings' %}"
+                class="py-4 px-2 text-white font-semibold hover:text-green-500 transition duration-300"
+                >Settings</a
+              >
+            </div>
+          </div>
+          <div class="md:hidden flex items-center">
+						<button class="outline-none mobile-menu-button">
+						<svg class=" w-6 h-6 text-gray-500 hover:text-green-500 "
+							x-show="!showMenu"
+							fill="none"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path d="M4 6h16M4 12h16M4 18h16"></path>
+						</svg>
+					</button>
+					</div>
+        </div>
+      </div>
+      <!-- mobile menu -->
+			<div class="hidden mobile-menu lg:hidden">
+				<ul class="">
+					<li><a href="{% url 'videos' %}" class="block text-sm px-2 py-4 text-white hover:bg-green-500 font-semibold">Videos</a></li>
+					<li><a href="{% url 'stars' %}" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Stars</a></li>
+					<li><a href="{% url 'channels' %}" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Channels</a></li>
+					<li><a href="{% url 'subsites' %}" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Subsites</a></li>
+					<li><a href="{% url 'categories' %}" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Categories</a></li>
+					<li><a href="{% url 'tags' %}" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Tags</a></li>
+					<li><a href="{% url 'pending' %}" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Pending</a></li>
+					<li><a href="{% url 'settings' %}" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Settings</a></li>
+				</ul>
+			</div>
+    </nav>{% endblock nav %}
+    <div class="max-w-6xl mx-auto px-4">
+    {% block content %}{% endblock content %}
+    </div>
+    
+    <script>
+      const btn = document.querySelector("button.mobile-menu-button");
+      const menu = document.querySelector(".mobile-menu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script> 
+    <script src="{% static 'js/settings.js' %}"></script>
+
+{% block scripts %}{% endblock scripts %}
+  </body>
+</html>

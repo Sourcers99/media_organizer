@@ -1,0 +1,11 @@
+{% extends 'videos/base.html' %}
+
+{% block content %}
+{% block nav %}{% endblock nav %}
+<div class="flex h-screen flex-col justify-center items-center">
+    <h1 class="text-7xl font-bold">Video Manager</h1>
+    <div class="pt-3">
+        <a href="{% url 'videos' %}" class="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg p-3 hover:from-blue-500 hover:to-cyan-500">Click here for content</a>
+    </div>
+</div>
+{% endblock content %}

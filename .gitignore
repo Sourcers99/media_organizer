@@ -139,3 +139,6 @@ scrapers/
 
 #media
 media/*
+
+#tailwind-setup
+theme/*

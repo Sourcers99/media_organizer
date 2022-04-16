@@ -114,10 +114,10 @@ class Video(models.Model):
 
     video_name = models.CharField(_("Video Name"), max_length=50)
     video_image = models.ImageField(_("Video Image"), upload_to=data["images-store-path"])
-    video_pub_date = models.DateField(_("Video Published"), auto_now=False, auto_now_add=False)
+    video_pub_date = models.DateField(_("Video Published"), auto_now=False, auto_now_add=False, blank=True, null=True)
     video_desc = models.TextField(_("Video Description"))
     video_stars = models.ManyToManyField("Star", verbose_name=_("Stars"))
-    video_channel = models.ForeignKey("Channel", verbose_name=_("Channel"), on_delete=models.CASCADE)
+    video_channel = models.ForeignKey("Channel", verbose_name=_("Channel"), on_delete=models.CASCADE, null=True, blank=True)
     video_path = models.CharField(_("Video Path"), max_length=50)
     video_tags = models.ManyToManyField("Tag", verbose_name=_("Video Tag"))
     video_category = models.ManyToManyField("Category", verbose_name=_("Video Category"))
@@ -128,7 +128,7 @@ class Video(models.Model):
         verbose_name_plural = _("Videos")
 
     def __str__(self):
-        return self.name
+        return self.video_name
 
     def get_absolute_url(self):
         return reverse("Video_detail", kwargs={"pk": self.pk})

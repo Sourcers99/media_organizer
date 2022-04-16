@@ -1,5 +1,16 @@
-<form action="{% url 'settings' %}" method="post">
-    {% csrf_token %}
-    <input type="text" name="video-path" id="">
-    <input type="submit" value="Submit">
+{% extends 'videos/base.html' %}
+{% load static %}
+
+{% block content %}
+<form class="setting-form" data-form-id="1">
+    <input type="text" name="video-path" class="text-black" id="1" placeholder="Videos directory" autocomplete=off>
+    <button type="submit">Save</button>
 </form>
+<br>
+<form class="setting-form" data-form-id="2">
+    <input type="text" name="chrome-driver-path" id="2" class="text-black"placeholder="Webdriver path" autocomplete=off>
+    <button type="submit">Save</button>
+</form>
+<br>
+
+{% endblock content %}
